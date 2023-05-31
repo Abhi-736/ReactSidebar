@@ -1,24 +1,19 @@
-import logo from './logo.svg';
-import './App.css';
+
+import React from 'react';
+import Sidebar from './component/Sidebar';
+import './style/style.css'
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+  const [isDark,setisDark]= React.useState(false)//for applying dark theme to the browser window
+
+const handleClick=()=>{
+  setisDark(pre=>!pre)
+
+}
+  return (<div className='container' id={`${isDark}`} >
+    <button className='themebtn' onClick={()=>(handleClick())}>{isDark?'Light Theme':'Dark Theme'}</button>
+<Sidebar/>
+  </div>
   );
 }
 
